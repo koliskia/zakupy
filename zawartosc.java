@@ -18,7 +18,7 @@ public class zawartosc extends JPanel
         super.paintComponent(g);
         
         g.setFont(new Font("TimesRoman", Font.PLAIN, 80));
-        g.drawString("dupa", 600, 400);
+        g.drawString("testing", 600, 400);
     }
 
 }
