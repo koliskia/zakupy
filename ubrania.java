@@ -1,3 +1,3 @@
-public class ubrania {
+public class ubrania extends towary {
     private String rozmiar;
 }
