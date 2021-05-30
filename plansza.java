@@ -9,5 +9,6 @@ public class plansza extends JFrame
         setTitle("gra");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+        
     }
 }

@@ -4,6 +4,6 @@ public class zakupki
     {
         plansza gra = new plansza();
         gra.setVisible(true);
-        //test
+        
     }
 }
