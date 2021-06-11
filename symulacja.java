@@ -1,8 +1,8 @@
-public class zakupki
+public class symulacja
 {
     public static void main(String[] args)
     {
-        plansza gra = new plansza();
+        mapa gra = new mapa();
         gra.setVisible(true);
         
     }

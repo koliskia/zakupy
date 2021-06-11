@@ -1,8 +1,8 @@
 import javax.swing.JFrame;
 
-public class plansza extends JFrame
+public class mapa extends JFrame
 {
-    public plansza()
+    public mapa()
     {
         add(new postac());
         setSize(1920, 1080);
