@@ -14,7 +14,8 @@ public class zawartosc extends JPanel implements ActionListener
         add(button);
         button.setActionCommand("jeden");
         button.addActionListener(this);
-
+        
+        postac.setVisible(false);
     }
 
         @Override
@@ -22,11 +23,12 @@ public class zawartosc extends JPanel implements ActionListener
     {
         if(e.getActionCommand()=="jeden")
         {
+            button.setEnabled(false);;
             button.setVisible(false);
             add(new postac());
             //System.out.println("dwa");
             //postac p = new postac();
-
+            postac.setVisible(true);
         }
     }
     

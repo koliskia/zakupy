@@ -4,7 +4,7 @@ public class plansza extends JFrame
 {
     public plansza()
     {
-        add(new zawartosc());
+        add(new postac());
         setSize(1920, 1080);
         setTitle("gra");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
