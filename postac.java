@@ -4,7 +4,7 @@ import java.awt.geom.*;
 import java.awt.*;
 import java.awt.Graphics2D;
 
-public class postac extends JPanel implements ActionListener
+public class Postac extends JPanel implements ActionListener
 {
     Timer t = new Timer(10, this);
     double x=0, y=0, predkoscX=5, predkoscY=5, h, w;
@@ -13,7 +13,7 @@ public class postac extends JPanel implements ActionListener
     private JTextField width,height;
     private boolean d=false;
 
-    public postac()
+    public Postac()
     {
         setLayout(null);
         button = new JButton("start");
