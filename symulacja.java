@@ -1,7 +1,5 @@
-import java.io.FileNotFoundException;
-
 public class symulacja {
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args){
         mapa gra = new mapa();
         gra.setVisible(true);
     }

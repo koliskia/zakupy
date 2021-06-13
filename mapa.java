@@ -1,5 +1,4 @@
 import javax.swing.JFrame;
-import java.io.FileNotFoundException;
 
 public class mapa extends JFrame {
     public mapa() {
