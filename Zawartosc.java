@@ -337,14 +337,14 @@ public class Zawartosc extends JPanel implements ActionListener {
             cenaa = Integer.parseInt(cenapn.getText());
             wagaa = Integer.parseInt(wagapn.getText());
             dniwaznosciaa = Integer.parseInt(dniwaznoscipn.getText());
-            napoje towar = new napoje(rand.nextInt(1890), rand.nextInt(1050), 30, 30, iloscPrzedmiotow, nazwaa, cenaa, wagaa, dniwaznosciaa, czygazpn.getText(), czyplastikpn.getText(), Color.BLUE);
+            napoje towar = new napoje(rand.nextInt(1890), rand.nextInt(1050), 30, 30, iloscPrzedmiotow, nazwaa, cenaa, wagaa, dniwaznosciaa, czygazpn.getText(), czyplastikpn.getText(), Color.YELLOW);
             tablica.add(towar);
             iloscPrzedmiotow++;
         } else if (e.getActionCommand() == "dodaju") {
             nazwaa = nazwapu.getText();
             cenaa = Integer.parseInt(cenapu.getText());
             wagaa = Integer.parseInt(wagapu.getText());
-            ubrania towar = new ubrania(rand.nextInt(1890), rand.nextInt(1050), 30, 30, iloscPrzedmiotow, nazwaa, cenaa, wagaa, rozmiarpu.getText(), Color.RED);
+            ubrania towar = new ubrania(rand.nextInt(1890), rand.nextInt(1050), 30, 30, iloscPrzedmiotow, nazwaa, cenaa, wagaa, rozmiarpu.getText(), Color.CYAN);
             tablica.add(towar);
             iloscPrzedmiotow++;
         }
