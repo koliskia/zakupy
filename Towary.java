@@ -1,6 +1,6 @@
 import java.awt.Color;
 
-public class towary {
+public class Towary {
     private int id;
     private String nazwa;
     private int cena;
@@ -8,7 +8,7 @@ public class towary {
     private Color kolor;
     int x1, y1, szerokosc, wysokosc;
 
-    public towary(int x1, int y1, int szerokosc, int wysokosc, int id, String nazwa, int cena, int waga, Color kolor) {
+    public Towary(int x1, int y1, int szerokosc, int wysokosc, int id, String nazwa, int cena, int waga, Color kolor) {
         this.x1 = x1;
         this.y1 = y1;
         this.szerokosc = szerokosc;

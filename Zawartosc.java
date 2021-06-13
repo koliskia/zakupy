@@ -3,7 +3,6 @@ import java.awt.event.*;
 import java.awt.geom.*;
 import java.awt.*;
 import java.awt.Graphics2D;
-
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -12,14 +11,12 @@ public class Zawartosc extends JPanel implements ActionListener {
     int x = 0, y = 0, predkoscX = 5, predkoscY = 5, licznik = 0;
     int iloscPrzedmiotow = 0;
 
-    String nazwaa, krajpocha, doZapis;
+    String nazwaa, krajpocha, doZapis="", czygaza, czyplastika, rozmiara;
     int cenaa, wagaa, dniwaznosciaa;
 
-    private ArrayList<towary> tablica = new ArrayList<>();
+    private ArrayList<Towary> tablica = new ArrayList<>();
     private Random rand = new Random();
     private JButton button;
-    private JButton minus;
-    private JButton plus;
     private JButton dodaj;
     private JButton dodajn;
     private JButton dodaju;
@@ -41,20 +38,6 @@ public class Zawartosc extends JPanel implements ActionListener {
         add(button);
         button.setActionCommand("jeden");
         button.addActionListener(this);
-
-        //tworzenie przycisku zwiekszajacego
-        plus = new JButton("+");
-        plus.setBounds(200, 1, 60, 60);
-        add(plus);
-        plus.setActionCommand("plus");
-        plus.addActionListener(this);
-
-        //tworzenie przycisku zmniejszajacego
-        minus = new JButton("-");
-        minus.setBounds(300, 1, 60, 60);
-        add(minus);
-        minus.setActionCommand("minus");
-        minus.addActionListener(this);
 
         nazwal = new JLabel("Nazwa: ");
         nazwal.setBounds(50, 200, 100, 20);
@@ -193,11 +176,11 @@ public class Zawartosc extends JPanel implements ActionListener {
             t.start();
 
             for (int i = 0; i < iloscPrzedmiotow; i++) {
-                towary z = tablica.get(i);
+                Towary z = tablica.get(i);
                 g.setColor(z.getColor());
                 g.fillRect(z.x1, z.y1, z.szerokosc, z.wysokosc);
                 g.setColor(Color.BLACK);
-                g.drawString(z.getNazwa().substring(0, 3), z.x1+5, z.y1+12);
+                g.drawString(z.getNazwa().substring(0, 3), z.x1 + 5, z.y1 + 12);
             }
         } else if (d == 0) {
 
@@ -212,10 +195,10 @@ public class Zawartosc extends JPanel implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-        if (x < 0 || x > 1900) {
+        if (x < 0 || x > 1500) {
             predkoscX = -predkoscX;
         }
-        if (y < 0 || y > 1000) {
+        if (y < 0 || y > 600) {
             predkoscY = -predkoscY;
         }
         x += predkoscX;
@@ -246,10 +229,6 @@ public class Zawartosc extends JPanel implements ActionListener {
             d = 1;
             button.setEnabled(false);
             button.setVisible(false);
-            plus.setEnabled(false);
-            plus.setVisible(false);
-            minus.setEnabled(false);
-            minus.setVisible(false);
             nazwal.setEnabled(false);
             nazwal.setVisible(false);
             cenal.setEnabled(false);
@@ -316,20 +295,15 @@ public class Zawartosc extends JPanel implements ActionListener {
             rozmiarpu.setVisible(false);
             dodaju.setEnabled(false);
             dodaju.setVisible(false);
-            
-        } else if (e.getActionCommand() == "plus") {
-            iloscPrzedmiotow++;
-        } else if (e.getActionCommand() == "minus") {
-            if (iloscPrzedmiotow > 1) {
-                iloscPrzedmiotow--;
-            }
+
 
         } else if (e.getActionCommand() == "dodaj") {
             nazwaa = nazwap.getText();
             cenaa = Integer.parseInt(cenap.getText());
             wagaa = Integer.parseInt(wagap.getText());
+            krajpocha = krajpochp.getText();
             dniwaznosciaa = Integer.parseInt(dniwaznoscip.getText());
-            zywnosc towar = new zywnosc(rand.nextInt(1890), rand.nextInt(1050), 30, 30, iloscPrzedmiotow, nazwaa, cenaa, wagaa, dniwaznosciaa, krajpochp.getText(), Color.GREEN);
+            Zywnosc towar = new Zywnosc(rand.nextInt(1470), rand.nextInt(570), 30, 30, iloscPrzedmiotow, nazwaa, cenaa, wagaa, dniwaznosciaa, krajpocha, Color.GREEN);
             tablica.add(towar);
             iloscPrzedmiotow++;
         } else if (e.getActionCommand() == "dodajn") {
@@ -337,14 +311,17 @@ public class Zawartosc extends JPanel implements ActionListener {
             cenaa = Integer.parseInt(cenapn.getText());
             wagaa = Integer.parseInt(wagapn.getText());
             dniwaznosciaa = Integer.parseInt(dniwaznoscipn.getText());
-            napoje towar = new napoje(rand.nextInt(1890), rand.nextInt(1050), 30, 30, iloscPrzedmiotow, nazwaa, cenaa, wagaa, dniwaznosciaa, czygazpn.getText(), czyplastikpn.getText(), Color.YELLOW);
+            czygaza = czygazpn.getText();
+            czyplastika = czyplastikpn.getText();
+            Napoje towar = new Napoje(rand.nextInt(1470), rand.nextInt(570), 30, 30, iloscPrzedmiotow, nazwaa, cenaa, wagaa, dniwaznosciaa, czygaza, czyplastika, Color.YELLOW);
             tablica.add(towar);
             iloscPrzedmiotow++;
         } else if (e.getActionCommand() == "dodaju") {
             nazwaa = nazwapu.getText();
             cenaa = Integer.parseInt(cenapu.getText());
             wagaa = Integer.parseInt(wagapu.getText());
-            ubrania towar = new ubrania(rand.nextInt(1890), rand.nextInt(1050), 30, 30, iloscPrzedmiotow, nazwaa, cenaa, wagaa, rozmiarpu.getText(), Color.CYAN);
+            rozmiara = rozmiarpu.getText();
+            Ubrania towar = new Ubrania(rand.nextInt(1470), rand.nextInt(570), 30, 30, iloscPrzedmiotow, nazwaa, cenaa, wagaa, rozmiara, Color.CYAN);
             tablica.add(towar);
             iloscPrzedmiotow++;
         }

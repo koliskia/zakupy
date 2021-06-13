@@ -1,6 +1,6 @@
-public class symulacja {
+public class Symulacja {
     public static void main(String[] args){
-        mapa gra = new mapa();
+        Mapa gra = new Mapa();
         gra.setVisible(true);
     }
 }

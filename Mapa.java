@@ -1,7 +1,7 @@
 import javax.swing.JFrame;
 
-public class mapa extends JFrame {
-    public mapa() {
+public class Mapa extends JFrame {
+    public Mapa() {
         add(new Zawartosc());
         setSize(1920, 1080);
         setTitle("gra");
