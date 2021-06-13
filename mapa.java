@@ -1,14 +1,12 @@
 import javax.swing.JFrame;
+import java.io.FileNotFoundException;
 
-public class mapa extends JFrame
-{
-    public mapa()
-    {
+public class mapa extends JFrame {
+    public mapa() {
         add(new Zawartosc());
         setSize(1920, 1080);
         setTitle("gra");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        
     }
 }

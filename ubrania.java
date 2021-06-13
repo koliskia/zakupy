@@ -1,8 +1,8 @@
 public class ubrania extends towary {
     private String rozmiar;
 
-    public ubrania(int id, String nazwa, int cena, int waga, String rozmiar) {
-        super(id, nazwa, cena, waga);
+    public ubrania(int x1, int y1, int szerokosc, int wysokosc, int id, String nazwa, int cena, int waga, String rozmiar) {
+        super(x1, y1, szerokosc, wysokosc, id, nazwa, cena, waga);
         this.rozmiar = rozmiar;
     }
 }
