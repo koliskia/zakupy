@@ -11,7 +11,7 @@ public class Zawartosc extends JPanel implements ActionListener {
     int x = 0, y = 0, predkoscX = 5, predkoscY = 5, licznik = 0;
     int iloscPrzedmiotow = 0;
 
-    String nazwaa, krajpocha, doZapis="", czygaza, czyplastika, rozmiara;
+    String nazwaa, krajpocha, doZapis = "", czygaza, czyplastika, rozmiara;
     int cenaa, wagaa, dniwaznosciaa;
 
     private ArrayList<Towary> tablica = new ArrayList<>();
