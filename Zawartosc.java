@@ -39,6 +39,7 @@ public class Zawartosc extends JPanel implements ActionListener {
         button.setActionCommand("jeden");
         button.addActionListener(this);
 
+        //inicjowanie panelu dla zywnosci
         nazwal = new JLabel("Nazwa: ");
         nazwal.setBounds(50, 200, 100, 20);
         add(nazwal);
@@ -80,7 +81,7 @@ public class Zawartosc extends JPanel implements ActionListener {
         dodaj.setActionCommand("dodaj");
         dodaj.addActionListener(this);
 
-        //NAPOJE
+        //inicjowanie panelu dla napoi
         nazwaln = new JLabel("Nazwa: ");
         nazwaln.setBounds(500, 200, 100, 20);
         add(nazwaln);
@@ -130,7 +131,7 @@ public class Zawartosc extends JPanel implements ActionListener {
         dodajn.addActionListener(this);
 
 
-        //UBRANIA
+        //inicjowanie panelu dla ubran
         nazwalu = new JLabel("Nazwa: ");
         nazwalu.setBounds(900, 200, 100, 20);
         add(nazwalu);
@@ -169,12 +170,14 @@ public class Zawartosc extends JPanel implements ActionListener {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
+        //rysowanie postaci na mapie
         if (d == 1) {
             Graphics2D g2 = (Graphics2D) g;
             Ellipse2D circle = new Ellipse2D.Double(x, y, 20, 20);
             g2.fill(circle);
             t.start();
-
+            
+            //rysowanie towarow na mapie
             for (int i = 0; i < iloscPrzedmiotow; i++) {
                 Towary z = tablica.get(i);
                 g.setColor(z.getColor());
@@ -182,10 +185,13 @@ public class Zawartosc extends JPanel implements ActionListener {
                 g.setColor(Color.BLACK);
                 g.drawString(z.getNazwa().substring(0, 3), z.x1 + 5, z.y1 + 12);
             }
+
+        //licznik towarow
         } else if (d == 0) {
 
             g.drawString("Ilosc przedmiotow: " + iloscPrzedmiotow, 400, 30);
 
+        //ekran po zakonczeniu symulacji
         } else if (d == 2) {
             Zapis.Zapis(doZapis);
             koniec = new JLabel("KONIEC SYMULACJI");
@@ -194,6 +200,7 @@ public class Zawartosc extends JPanel implements ActionListener {
         }
     }
 
+    //przemieszczanie sie postaci
     public void actionPerformed(ActionEvent e) {
         if (x < 0 || x > 1500) {
             predkoscX = -predkoscX;
@@ -204,7 +211,7 @@ public class Zawartosc extends JPanel implements ActionListener {
         x += predkoscX;
         y += predkoscY;
 
-
+        //usuwanie towarow z ekranu po kolizji z postacia
         if (d == 1) {
             licznik++;
             for (int i = 0; i < iloscPrzedmiotow; i++) {
@@ -218,6 +225,7 @@ public class Zawartosc extends JPanel implements ActionListener {
 
             }
 
+            // konczenie symulacji po wyzerowanie towartow na ekranie
             if (iloscPrzedmiotow == 0) {
                 d = 2;
             }

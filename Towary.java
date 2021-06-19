@@ -18,9 +18,9 @@ public class Towary {
         this.cena = cena;
         this.waga = waga;
         this.kolor = kolor;
-        
     }
 
+    //sprawdzanie kolozji postaci z towarami
     public boolean hitbox(int x, int y) {
         if (x1 - 20 <= x && x <= x1 + szerokosc + 20 && y1 - 20 <= y && y <= y1 + wysokosc + 20) {
             return true;
