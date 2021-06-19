@@ -30,6 +30,9 @@ public class Zawartosc extends JPanel implements ActionListener {
 
     private int d = 0;
 
+    /**
+     * Inicjowanie przycisku rozpoczynajacego symulacje, panelow dodawania towarow
+     */
     public Zawartosc() {
         setLayout(null);
         //inicjowanie przycisku rozpoczynajacego symulacje
@@ -167,6 +170,11 @@ public class Zawartosc extends JPanel implements ActionListener {
         dodaju.addActionListener(this);
     }
 
+    /**
+     * Rysowanie postaci i towarow na mapie oraz ekran koncowy
+     *
+     * @param g
+     */
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
@@ -176,7 +184,7 @@ public class Zawartosc extends JPanel implements ActionListener {
             Ellipse2D circle = new Ellipse2D.Double(x, y, 20, 20);
             g2.fill(circle);
             t.start();
-            
+
             //rysowanie towarow na mapie
             for (int i = 0; i < iloscPrzedmiotow; i++) {
                 Towary z = tablica.get(i);
@@ -186,12 +194,12 @@ public class Zawartosc extends JPanel implements ActionListener {
                 g.drawString(z.getNazwa().substring(0, 3), z.x1 + 5, z.y1 + 12);
             }
 
-        //licznik towarow
+            //licznik towarow
         } else if (d == 0) {
 
             g.drawString("Ilosc przedmiotow: " + iloscPrzedmiotow, 400, 30);
 
-        //ekran po zakonczeniu symulacji
+            //ekran po zakonczeniu symulacji
         } else if (d == 2) {
             Zapis.Zapis(doZapis);
             koniec = new JLabel("KONIEC SYMULACJI");
@@ -200,7 +208,12 @@ public class Zawartosc extends JPanel implements ActionListener {
         }
     }
 
-    //przemieszczanie sie postaci
+
+    /**
+     * Przemieszczanie sie postaci i usuwanie towarow po zetknieciu sie z postacia
+     *
+     * @param e
+     */
     public void actionPerformed(ActionEvent e) {
         if (x < 0 || x > 1500) {
             predkoscX = -predkoscX;
@@ -225,7 +238,7 @@ public class Zawartosc extends JPanel implements ActionListener {
 
             }
 
-            // konczenie symulacji po wyzerowanie towartow na ekranie
+            // konczenie symulacji po wyzerowanie towarow na ekranie
             if (iloscPrzedmiotow == 0) {
                 d = 2;
             }
